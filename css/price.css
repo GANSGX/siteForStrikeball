@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --index: calc(1vh + 1vh);
+    --text: #e2e2d2;
+    --transition: transform .75s cubic-bezier(0.075, 0.500, 0, 1);
+}
+.poiret-one-regular {  font-family: "Poiret One", sans-serif;
+    font-weight: 400;  font-style: normal;
+  }
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #010101;
+    font-family: Poiret One, sans-serif;
+    line-height: 1.55;
+}
+.transparent-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: calc(var(--index) * 5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Уменьшите отступы для меньшего размера шапки */
+    background-color: rgba(50, 50, 50, 0.5); /* Полупрозрачный серый */
+    color: white;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.header-logo {
+    display: inline-block;
+}
+
+.logo-image {
+    display: block;
+    margin-left: calc(var(--index) * 6);
+    max-width: 150px; /* Установите максимальную ширину логотипа */
+    max-height: 100px; /* Установите максимальную высоту логотипа */
+    height: auto; /* Сохраняет пропорции изображения */
+    width: auto; /* Сохраняет пропорции изображения */
+    object-fit: contain; /* Обеспечивает, что изображение будет полностью видимо */
+}
+
+.header-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: white;
+    margin-right: 10px; /* Перемещает блок с контактами вправо */
+    padding: 10px; /* Отступы для блока */
+}
+
+/* Стили для текста с телефоном */
+.header-phone {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Стили для надписи "ЗВОНИТЕ" */
+.header-call {
+    font-size: 0.9rem;
+    margin: 5px 0 0 0; /* Отступ сверху для разделения текста */
+    text-transform: uppercase; /* Сделать текст заглавными буквами */
+}
+.header-nav {
+    display: flex;
+    margin-right: calc(var(--index) * 2); /* Подвинем навигацию левее на 10% */
+}
+
+.header-nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header-nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #e0e0e0; /* Чуть темнее белый */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 16px;
+    background: transparent; /* Убираем фон */
+    box-shadow: none; /* Убираем тень */
+    backdrop-filter: none; /* Убираем эффект размытия */
+    transition: color 0.3s ease, transform 0.3s ease; /* Переходы для изменения цвета и трансформации */
+}
+
+.nav-link:hover {
+    color: #f0f000; /* Желтый цвет текста при наведении */
+    transform: scale(1.1); /* Увеличение размера текста */
+    transition: color 0.3s ease, transform 0.3s ease; /* Убедитесь, что переход для трансформации и цвета применяется */
+}
+
+/* Стиль для контейнера выпадающего меню */
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: rgba(60, 60, 60, 0.6); /* Полупрозрачный светлый фон */
+    list-style: none;
+    display: none;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: none; /* Убираем тень */
+    backdrop-filter: none; /* Убираем эффект размытия */
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+/* Показ меню при наведении */
+.header-nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Стили для элементов выпадающего меню */
+.dropdown-menu li {
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a {
+    color: #e0e0e0; /* Чуть темнее белый */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Переходы для изменения цвета и трансформации */
+}
+
+/* Эффекты при наведении на элементы меню */
+.dropdown-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Легкий фон при наведении */
+}
+
+.dropdown-menu a:hover {
+    color: #f0f000; /* Желтый цвет текста ссылки при наведении */
+    transform: scale(1.1);/* Увеличение размера текста */
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: calc(var(--index) * .08); /* Отступ от текста */
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #e0e0e0; /* Цвет стрелочки */
+    vertical-align: middle; /* Выравнивание по центру строки */
+    transition: transform 0.3s ease; /* Переход для анимации стрелочки */
+}
+
+/* Вращение стрелочки при наведении */
+.header-nav-item:hover .arrow-down {
+    transform: rotate(180deg); /* Вращение стрелочки вниз при наведении на элемент */
+}
+
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pricing-title {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень */
+    font-family: 'Exotic Stencil Army', sans-serif; /* Специальный шрифт */
+    text-align: center; /* Центрирование заголовка */
+    margin-bottom: 40px; /* Отступ снизу для заголовка */
+}
+
+.pricing-section {
+    display: flex;
+    flex-direction: column; /* Изменить направление на вертикальное */
+    align-items: center; /* Центровка элементов по горизонтали */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #1c1c1c; /* Темно-серый фон */
+    min-height: 100vh; /* Занять всю высоту экрана */
+    min-width: 100%;
+    margin-top: calc(var(--index) * 5);
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет контейнерам оборачиваться на новую строку */
+    justify-content: space-around; /* Разделяет контейнеры по ширине */
+    width: 100%; /* Ширина 100% для использования всего пространства */
+}
+
+.service-container {
+    background-color: #333333; /* Темный серый для контейнера */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: calc(25% - 20px); /* Ширина контейнеров на 25%, но с учетом отступов */
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    text-align: center; /* Центровка текста */
+}
+
+.service-container:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.service-title {
+    font-size: calc(var(--index) * 1.3);
+    color: white;
+    margin-bottom: calc(var(--index) * 1.1);
+}
+
+.service-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.service-price {
+    font-size: calc(var(--index) * 1.4);
+    color: #ccc; /* Светло-серый для цены */
+}
+
+.order-button {
+    background-color: #444444;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+    background-color: #555555;
+}
+
+.modal {
+    display: none; /* Скрываем по умолчанию */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #333;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.close-button {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-header {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    font-size: calc(var(--index) * 1.5);
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; 
+}
+.modal-description {
+    z-index: 10;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.66); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; 
+}
+.modal-contacts {
+    z-index: 10;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; 
+}
+
+.modal-link {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    font-size: calc(var(--index) * 1);
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; 
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.modal-link:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px;
+    background-color: #393333d3;
+    color: #fff;
+}
+
+.footer-logo img {
+    width: 100px;
+    margin-top: calc(var(--index) * 1.3);
+    margin-right: calc(var(--index) * 14);
+    margin-left: calc(var(--index) * 5);
+}
+
+.footer-contacts {
+    text-align: left;
+    margin-right: calc(var(--index) * 10);
+}
+
+.footer-social {
+    text-align: left;
+}
+
+.footer-contacts p,
+.footer-social p,
+.footer-social ul {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.footer-header {
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для объема */
+        0 0 5px rgba(255, 255, 255, 0.478); /* Легкая белая тень */
+    font-family: 'Exotic Stencil Army', sans-serif;
+}
+
+.social-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для объема */
+        0 0 5px rgba(255, 255, 255, 0.478); /* Легкая белая тень */
+    font-family: 'Exotic Stencil Army', sans-serif;
+}
+
+.social-list {
+    list-style: none;
+    padding: 0;
+}
+
+.social-list li {
+    margin-bottom: 5px;
+}
+
+.social-list a {
+    color: #fff; /* Белый цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.social-list a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}

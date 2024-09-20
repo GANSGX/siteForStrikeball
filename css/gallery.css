@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --index: calc(1vh + 1vh);
+    --text: #e2e2d2;
+    --transition: transform .75s cubic-bezier(0.075, 0.500, 0, 1);
+}
+.poiret-one-regular {  font-family: "Poiret One", sans-serif;
+    font-weight: 400;  font-style: normal;
+  }
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #010101;
+    font-family: Poiret One, sans-serif;
+    line-height: 1.55;
+}
+.transparent-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: calc(var(--index) * 5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Уменьшите отступы для меньшего размера шапки */
+    background-color: rgba(50, 50, 50, 0.5); /* Полупрозрачный серый */
+    color: white;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.header-logo {
+    display: inline-block;
+}
+
+.logo-image {
+    display: block;
+    margin-left: calc(var(--index) * 6);
+    max-width: 150px; /* Установите максимальную ширину логотипа */
+    max-height: 100px; /* Установите максимальную высоту логотипа */
+    height: auto; /* Сохраняет пропорции изображения */
+    width: auto; /* Сохраняет пропорции изображения */
+    object-fit: contain; /* Обеспечивает, что изображение будет полностью видимо */
+}
+
+.header-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: white;
+    margin-right: 10px; /* Перемещает блок с контактами вправо */
+    padding: 10px; /* Отступы для блока */
+}
+
+/* Стили для текста с телефоном */
+.header-phone {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Стили для надписи "ЗВОНИТЕ" */
+.header-call {
+    font-size: 0.9rem;
+    margin: 5px 0 0 0; /* Отступ сверху для разделения текста */
+    text-transform: uppercase; /* Сделать текст заглавными буквами */
+}
+.header-nav {
+    display: flex;
+    margin-right: calc(var(--index) * 2); /* Подвинем навигацию левее на 10% */
+}
+
+.header-nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header-nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #e0e0e0; /* Чуть темнее белый */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 16px;
+    background: transparent; /* Убираем фон */
+    box-shadow: none; /* Убираем тень */
+    backdrop-filter: none; /* Убираем эффект размытия */
+    transition: color 0.3s ease, transform 0.3s ease; /* Переходы для изменения цвета и трансформации */
+}
+
+.nav-link:hover {
+    color: #f0f000; /* Желтый цвет текста при наведении */
+    transform: scale(1.1); /* Увеличение размера текста */
+    transition: color 0.3s ease, transform 0.3s ease; /* Убедитесь, что переход для трансформации и цвета применяется */
+}
+
+/* Стиль для контейнера выпадающего меню */
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: rgba(60, 60, 60, 0.6); /* Полупрозрачный светлый фон */
+    list-style: none;
+    display: none;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: none; /* Убираем тень */
+    backdrop-filter: none; /* Убираем эффект размытия */
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+/* Показ меню при наведении */
+.header-nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Стили для элементов выпадающего меню */
+.dropdown-menu li {
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a {
+    color: #e0e0e0; /* Чуть темнее белый */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Переходы для изменения цвета и трансформации */
+}
+
+/* Эффекты при наведении на элементы меню */
+.dropdown-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Легкий фон при наведении */
+}
+
+.dropdown-menu a:hover {
+    color: #f0f000; /* Желтый цвет текста ссылки при наведении */
+    transform: scale(1.1);/* Увеличение размера текста */
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: calc(var(--index) * .08); /* Отступ от текста */
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #e0e0e0; /* Цвет стрелочки */
+    vertical-align: middle; /* Выравнивание по центру строки */
+    transition: transform 0.3s ease; /* Переход для анимации стрелочки */
+}
+
+/* Вращение стрелочки при наведении */
+.header-nav-item:hover .arrow-down {
+    transform: rotate(180deg); /* Вращение стрелочки вниз при наведении на элемент */
+}
+
+.gallery-container {
+    padding: 20px;
+}
+
+.gallery-title {
+    margin-top: calc(var(--index) * 5);
+    z-index: 10;
+    font-size: calc(var(--index) * 3);
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    color: #c5c6c7;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7),
+        0 0 5px rgba(255, 255, 255, 0.663);
+    font-family: 'Exotic Stencil Army', sans-serif;
+    margin-bottom: 10px; /* Отступ для разделения заголовка и описания */
+    text-align: center; /* Центрирование текста */
+}
+
+.gallery-description {
+    font-family: 'Poiret One', sans-serif; /* Применение вашего шрифта */
+    color: #c5c6c7;
+    text-align: center; /* Центрирование текста */
+    font-size: calc(var(--index) * 2); /* Размер текста */
+    margin-bottom: 30px; /* Отступ снизу для разделения с галереей */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7),
+        0 0 5px rgba(255, 255, 255, 0.808);
+        text-transform: uppercase;      
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Увеличьте минимальный размер блока */
+    gap: 15px; /* Промежутки между элементами */
+}
+
+.gallery-item {
+    background-color: #3e3e3e; /* Светло-серый фон для элементов */
+    border-radius: 8px; /* Скругление углов */
+    overflow: hidden; /* Скрыть переполнение */
+    transition: transform 0.3s ease; /* Плавный эффект при наведении */
+    height: 300px; /* Фиксированная высота блока */
+}
+
+.gallery-item img {
+    width: 100%; /* Заполнение всей ширины */
+    height: 100%; /* Автоматическая высота */
+    display: block; /* Убираем пробел под изображением */
+    object-fit: cover; /* Заполнение блока с сохранением пропорций */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    max-width: 80%; /* Максимальная ширина модального окна */
+    text-align: center;
+}
+
+.modal-img {
+    max-width: 80%; /* Устанавливаем максимальную ширину */
+    max-height: 50%; /* Устанавливаем максимальную высоту */
+    display: block; /* Убираем пробел под изображением */
+    margin: auto; /* Центрируем изображение */
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 24px;
+    padding: 16px;
+    transition: 0.6s ease;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 24px;
+    padding: 200px 60px; /* Увеличенный padding для большей области действия */
+    transition: 0.6s ease;
+    transform: translateY(-50%);
+    user-select: none;
+}
+
+footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px;
+    background-color: #393333d3;
+    color: #fff;
+}
+.footer-logo img {
+    width: 150px;
+    margin-top: calc(var(--index) * 1.3);
+    margin-right: calc(var(--index) * 15);
+    margin-left: calc(var(--index) * 5);
+}
+.footer-contacts {
+    text-align: left;
+    margin-right: calc(var(--index) * 10);
+}
+.footer-social {
+    text-align: left;
+}
+.footer-contacts p,
+.footer-social p,
+.footer-social ul {
+    margin: 0;
+    margin-bottom: 10px;
+}
+.footer-header {
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для объема */
+        0 0 5px rgba(255, 255, 255, 0.478); /* Легкая белая тень */
+    font-family: 'Exotic Stencil Army', sans-serif;
+}
+.social-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для объема */
+        0 0 5px rgb(255, 255, 255, 0.478); /* Легкая белая тень */
+    font-family: 'Exotic Stencil Army', sans-serif;
+}
+.social-list {
+    list-style: none;
+    padding: 0;
+}
+.social-list li {
+    margin-bottom: 5px;
+}
+.social-list a {
+    color: #fff;
+    text-decoration: none;
+}
+.social-list a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,492 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --index: calc(1vh + 1vh);
+    --text: #e2e2d2;
+    --transition: transform .75s cubic-bezier(0.075, 0.500, 0, 1);
+}
+.poiret-one-regular {  font-family: "Poiret One", sans-serif;
+    font-weight: 400;  font-style: normal;
+  }
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #010101;
+    font-family: Poiret One, sans-serif;
+    line-height: 1.55;
+}
+.transparent-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: calc(var(--index) * 5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Уменьшите отступы для меньшего размера шапки */
+    background-color: rgba(50, 50, 50, 0.5); /* Полупрозрачный серый */
+    color: white;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.header-logo {
+    display: inline-block;
+}
+
+.logo-image {
+    display: block;
+    margin-left: calc(var(--index) * 6);
+    max-width: 150px; /* Установите максимальную ширину логотипа */
+    max-height: 100px; /* Установите максимальную высоту логотипа */
+    height: auto; /* Сохраняет пропорции изображения */
+    width: auto; /* Сохраняет пропорции изображения */
+    object-fit: contain; /* Обеспечивает, что изображение будет полностью видимо */
+}
+
+.header-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: white;
+    margin-right: 10px; /* Перемещает блок с контактами вправо */
+    padding: 10px; /* Отступы для блока */
+}
+
+/* Стили для текста с телефоном */
+.header-phone {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Стили для надписи "ЗВОНИТЕ" */
+.header-call {
+    font-size: 0.9rem;
+    margin: 5px 0 0 0; /* Отступ сверху для разделения текста */
+    text-transform: uppercase; /* Сделать текст заглавными буквами */
+}
+.header-nav {
+    display: flex;
+    margin-right: calc(var(--index) * 2); /* Подвинем навигацию левее на 10% */
+}
+
+.header-nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header-nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #e0e0e0; /* Чуть темнее белый */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 16px;
+    background: transparent; /* Убираем фон */
+    box-shadow: none; /* Убираем тень */
+    backdrop-filter: none; /* Убираем эффект размытия */
+    transition: color 0.3s ease, transform 0.3s ease; /* Переходы для изменения цвета и трансформации */
+}
+
+.nav-link:hover {
+    color: #f0f000; /* Желтый цвет текста при наведении */
+    transform: scale(1.1); /* Увеличение размера текста */
+    transition: color 0.3s ease, transform 0.3s ease; /* Убедитесь, что переход для трансформации и цвета применяется */
+}
+
+/* Стиль для контейнера выпадающего меню */
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: rgba(60, 60, 60, 0.6); /* Полупрозрачный светлый фон */
+    list-style: none;
+    display: none;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: none; /* Убираем тень */
+    backdrop-filter: none; /* Убираем эффект размытия */
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+/* Показ меню при наведении */
+.header-nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Стили для элементов выпадающего меню */
+.dropdown-menu li {
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a {
+    color: #e0e0e0; /* Чуть темнее белый */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Переходы для изменения цвета и трансформации */
+}
+
+/* Эффекты при наведении на элементы меню */
+.dropdown-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Легкий фон при наведении */
+}
+
+.dropdown-menu a:hover {
+    color: #f0f000; /* Желтый цвет текста ссылки при наведении */
+    transform: scale(1.1);/* Увеличение размера текста */
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: calc(var(--index) * .08); /* Отступ от текста */
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #e0e0e0; /* Цвет стрелочки */
+    vertical-align: middle; /* Выравнивание по центру строки */
+    transition: transform 0.3s ease; /* Переход для анимации стрелочки */
+}
+
+/* Вращение стрелочки при наведении */
+.header-nav-item:hover .arrow-down {
+    transform: rotate(180deg); /* Вращение стрелочки вниз при наведении на элемент */
+}
+.main-section {
+    position: relative;
+    height: 100vh; /* Задаем высоту первой секции на весь экран */
+    overflow: hidden; /* Обрезаем контент, который может выходить за пределы экрана */
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Центрируем видео */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Отправляем видео под контент */
+    object-fit: cover; /* Обеспечивает покрытие всего экрана, сохраняя пропорции */
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 1; /* Контент находится поверх видео */
+    text-align: center; /* Выравниваем текст по центру */
+    color: white; /* Можно изменить цвет текста, если нужно */
+    padding: 20px;
+}
+
+.layer__header {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; 
+}
+.layers__title {
+    font-size: calc(var(--index) * 3);
+    letter-spacing: calc(var(--index) * .4);
+}
+.layers__caption {
+    font-size: calc(var(--index) * 1.5);
+    letter-spacing: calc(var(--index) / 3.5);
+    margin-top: calc(var(--index) * 20);
+}
+
+.club-advantages {
+    background-color: #1a1a1a; /* Темный фон для секции */
+    padding: 50px 20px;
+    color: var(--text); /* Цвет текста из ваших переменных */
+    text-align: center; /* Центрирование текста */
+    min-height: 100vh; /* Высота секции на весь экран */
+    display: flex; /* Flexbox для центрирования содержимого */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: flex-start; /* Выровнять элементы сверху */
+    align-items: center; /* Центрирование по горизонтали */
+}
+
+.advantages-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 блока сверху */
+    grid-template-rows: auto auto; /* 2 ряда */
+    gap: 20px;
+    margin-top: 20px; /* Отступ сверху для контейнера с преимуществами */
+}
+.club-title {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    will-change: transform;
+    font-weight: 900; /* Жирный шрифт */
+    color: #ffffff; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.795); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; /* Шрифт */
+    font-size: calc(var(--index) * 3); /* Размер шрифта для подзаголовка */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+.advantage-block {
+    background-color: #2c2c2c; /* Фон для каждого блока */
+    padding: 20px;
+    border-radius: 12px;
+    width: calc(var(--index) * 35); /* Ширина блока, учитывая отступы */
+    height: calc(var(--index) * 20);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень для объема */
+    transition: transform 0.3s ease;
+}
+.advantages-main {
+    text-align: left; /* Выровнять текст влево */
+    max-width: 800px; /* Максимальная ширина блока */
+    padding: 20px; /* Отступы внутри блока */
+    position: relative; /* Относительное позиционирование */
+    left: calc(var(--index) * -8); /* Сместить блок влево */
+    overflow: hidden; /* Скрытие переполнения текста */
+}
+.advantages-subtitle {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    will-change: transform;
+    font-weight: 900; /* Жирный шрифт */
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(240, 252, 2, 0.71); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; /* Шрифт */
+    font-size: calc(var(--index) * 2); /* Размер шрифта для подзаголовка */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.advantages-description {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    will-change: transform;
+    font-weight: 900; /* Жирный шрифт */
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; /* Шрифт */
+    font-size: calc(var(--index) * 1.3); /* Размер шрифта для подзаголовка */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+.advantage-block:hover {
+    transform: translateY(-10px); /* Подъем блока при наведении */
+}
+
+.advantage-block h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #a8f807; /* Желтый цвет заголовка */
+}
+
+.advantage-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text); /* Общий цвет текста */
+}
+
+/* Адаптация для маленьких экранов */
+@media (max-width: 768px) {
+    .advantage-block {
+        width: calc(50% - 20px); /* Увеличиваем ширину блоков на маленьких экранах */
+    }
+}
+
+@media (max-width: 480px) {
+    .advantage-block {
+        width: 100%; /* Один блок на всю ширину экрана на маленьких устройствах */
+    }
+}
+.advantage-bg-1 {
+    background-image: url('../img/img1.jpg'); /* Путь к изображению для Преимущества 1 */
+    background-size: cover; /* Заполнение блока изображением */
+    background-position: center; /* Центрирование изображения */
+}
+
+.advantage-bg-4 {
+    background-image: url('../img/img4.jpg'); /* Путь к изображению для Преимущества 4 */
+    background-size: cover; /* Заполнение блока изображением */
+    background-position: center; /* Центрирование изображения */
+}
+.advantage-bg-1,
+.advantage-bg-4 {
+    position: relative; /* Позволяет использовать абсолютное позиционирование для псевдоэлемента */
+    overflow: hidden; /* Прячет содержимое за пределами блока */
+}
+
+.advantage-bg-1::before,
+.advantage-bg-4::before {
+    content: ""; /* Создает псевдоэлемент */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(136, 134, 3, 0.597); /* Полупрозрачный желтый цвет */
+    z-index: 1; /* Устанавливает порядок отображения */
+}
+
+.advantage-bg-1 h2,
+.advantage-bg-1 p,
+.advantage-bg-4 h2,
+.advantage-bg-4 p {
+    position: relative; /* Чтобы текст отображался поверх псевдоэлемента */
+    color: white; /* Цвет текста для лучшей читаемости на фоне */
+    z-index: 2; /* Устанавливает текст выше псевдоэлемента */
+}
+
+.advantage-block h2,
+.advantage-block p {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    will-change: transform;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif;
+}
+
+/* Установка размеров текста отдельно для заголовков и параграфов */
+.advantage-block h2 {
+    font-size: calc(var(--index) * 1.5); /* Размер шрифта для заголовка */
+    margin-bottom: 10px;
+}
+
+.advantage-block p {
+    font-size: calc(var(--index) * 1); /* Размер шрифта для описания */
+    line-height: 1.6;
+}
+
+
+
+
+.contact-section {
+    background-color: #333; /* Темно-серый фон */
+    padding: 50px 20px;
+    color: #fff; /* Белый текст */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-details {
+    width: 45%; /* Уменьшенная ширина для левого блока */
+    margin-left: calc(var(--index)* 20); /* Отступ для смещения текста вправо */
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для объема */
+        0 0 5px rgba(255, 0, 0, 0.986); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif;
+}
+
+.contact-item h2 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #c5c6c7;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7),
+        0 0 5px rgba(245, 225, 0, 0.653);
+    font-family: 'Exotic Stencil Army', sans-serif;
+    margin-bottom: 20px;
+}
+
+.contact-item p {
+    font-size: 1.1rem;
+    color: #c5c6c7;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7),
+        0 0 5px rgba(255, 255, 255, 0.4);
+    font-family: 'Exotic Stencil Army', sans-serif;
+    margin-bottom: 20px;
+}
+
+.contact-map {
+    width: 50%; /* Ширина блока с картой */
+    height: 300px; /* Высота карты */
+    margin-right: calc(var(--index) * 15); /* Отступ справа */
+    background-color: #222; /* Заглушка на случай ошибки */
+    margin-top: calc(var(--index) * 6);
+    overflow: hidden;
+}
+
+
+.social-list {
+    list-style: none;
+    padding: 0;
+}
+
+.social-list li {
+    margin-bottom: 5px;
+}
+
+.social-list a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-list a:hover {
+    text-decoration: underline;
+}
+.social-link {
+    z-index: 10;
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+    transition: var(--transition);
+    text-transform: uppercase;
+    will-change: transform;
+    font-weight: 900;
+    font-size: calc(var(--index) * 1.2);
+    color: #c5c6c7; /* Светлый цвет текста для контраста */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.7), /* Черная тень для эффекта объема */
+        0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень для контраста */
+    font-family: 'Exotic Stencil Army', sans-serif; 
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.social-link:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}

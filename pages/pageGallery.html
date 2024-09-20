@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/gallery.css">
+    <script src="libs/gsap/gsap.min.js" defer></script>
+    <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="transparent-header">
+        <a href="../index.html#main-section" class="header-logo">
+            <img src="../img/Rubej.png" alt="Лого" class="logo-image">
+        </a>
+        <nav class="header-nav">
+            <ul class="header-nav-list">
+                <li class="header-nav-item dropdown">
+                    <a href="#" class="nav-link">Услуги
+                        <span class="arrow-down"></span> <!-- Стрелочка вниз -->
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../pages/pricePage.html">Страйкбол</a></li>
+                        <li><a href="#">Гидробол</a></li>
+                    </ul>
+                </li>
+                <li class="header-nav-item"><a href="../pages/pageGallery.html" class="nav-link">Галерея</a></li>
+                <li class="header-nav-item"><a href="../index.html#club-advantages" class="nav-link">О клубе</a></li>
+                <li class="header-nav-item"><a href="../index.html#contact-section" class="nav-link">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="header-contact">
+            <p class="header-phone">+7 (903) 932-03-33</p>
+            <p class="header-call">ЗВОНИТЕ!</p>
+        </div>
+    </header>
+
+    <main class="gallery-container">
+        <h1 class="gallery-title">Галерея</h1>
+        <p class="gallery-description">Мы делимся процессом своей работы, фотографиями с наших мероприятий!</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="../img/img1.jpg" alt="Описание 1" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/img2.jpg" alt="Описание 2" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/img3.jpg" alt="Описание 3" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/img4.jpg" alt="Описание 4" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/img5.jpg" alt="Описание 4" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/img6.jpg" alt="Описание 4" onclick="openModal(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="../img/img7.jpg" alt="Описание 4" onclick="openModal(this)">
+            </div>
+        </div>
+    </main>
+    
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <span class="prev" onclick="changeImage(-1); event.stopPropagation();">&#10094;</span>
+            <img class="modal-img" id="modalImage" src="" alt="">
+            <span class="next" onclick="changeImage(1); event.stopPropagation();">&#10095;</span>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="../img/Rubej.png" alt="Лого" class="logo-image">
+        </div>
+        <div class="footer-contacts">
+            <p class="footer-header">Наши контакты</p>
+            <p class="footer-phone">Телефон: +7 (903) 932-03-33</p>
+            <p class="footer-address">Адрес: г. Новосибирск ул. Станционная 30б, Новосибирск</p>
+        </div>
+        <div class="footer-social">
+            <p class="social-title">Наши соц.сети:</p>
+            <ul class="social-list">
+                <li><a href="https://t.me/rubezhnsk">Telegram</a></li>
+                <li><a href="https://vk.com/rubezhnsk">VK</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
