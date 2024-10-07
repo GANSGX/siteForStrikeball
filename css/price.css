@@ -168,6 +168,12 @@ body {
 }
 
 
+
+
+
+
+
+
 .pricing-header {
     text-align: center;
     margin-bottom: 20px;
@@ -186,7 +192,7 @@ body {
         0 0 5px rgba(255, 255, 255, 0.4); /* Легкая белая тень */
     font-family: 'Exotic Stencil Army', sans-serif; /* Специальный шрифт */
     text-align: center; /* Центрирование заголовка */
-    margin-bottom: 40px; /* Отступ снизу для заголовка */
+    margin-bottom: calc(var(--index) * 2);
 }
 
 .pricing-section {
@@ -421,3 +427,33 @@ footer {
 .social-list a:hover {
     text-decoration: underline; /* Подчеркивание при наведении */
 }
+
+.pricing-section1 {
+    display: flex;
+    flex-direction: column; /* Изменить направление на вертикальное */
+    align-items: center; /* Центровка элементов по горизонтали */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #1c1c1c; /* Темно-серый фон */
+    min-height: 100vh; /* Занять всю высоту экрана */
+    min-width: 100%;
+    
+}
+.service-container1 {
+    background-color: #4d4b4b; /* Темный серый для контейнера */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: calc(25% - 20px); /* Ширина контейнеров на 25%, но с учетом отступов */
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    text-align: center; /* Центровка текста */
+}
+
+
+
+

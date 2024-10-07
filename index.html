@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="libs/gsap/gsap.min.js" defer></script>
-    <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
-    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
-    <script src="js/app.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Ваш JavaScript -->
+    <script src="js/app.js" defer></script>
 </head>
 
 <body>
@@ -57,7 +63,7 @@
 
 
 
-    <section class="club-advantages" id="club-advantages">
+    <!-- <section class="club-advantages" id="club-advantages">
         <h1 class="club-title">О КЛУБЕ</h1>
         <div class="advantages-main">
         <h2 class="advantages-subtitle">ВОЕННО-ТАКТИЧЕСКИЙ ПОЛИГОН РУБЕЖ</h2>
@@ -83,10 +89,57 @@
                 <p>Описание четвертого преимущества клуба.</p>
             </div>
         </div>
+    </section> -->
+
+    <section class="swiper-section">
+        
+        <h1 class="swiper-title">О НАШЕМ КЛУБЕ</h1>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-images">
+                        <img src="img/p90.png" alt="Современное снаряжение">
+                        <img src="img/guns.png" alt="Современное снаряжение">
+                    </div>
+                    <p>Современное снаряжение для комфорта и безопасности.</p>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-images">
+                        <img src="img/range1.png" alt="Крутой полигон">
+                        <img src="img/range2.png" alt="Крутой полигон">
+                    </div>
+                    <p>Наши полигон - это идеальное место для тренировок и соревнований.</p>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-images">
+                        <img src="img/events1.png" alt="Проводим ивенты">
+                        <img src="img/events2.png" alt="Проводим ивенты">
+                    </div>
+                    <p>Проводим ивенты по популярным играм и развлекаем участников.</p>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-images">
+                        <img src="img/individual1.png" alt="Индивидуальный подход">
+                        <img src="img/individual2.png" alt="Индивидуальный подход">
+                    </div>
+                    <p>Индивидуальный подход к каждому участнику для максимального комфорта.</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- Кнопки навигации -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Пагинация -->
+        <div class="swiper-pagination"></div>
     </section>
 
-
     <section class="contact-section" id="contact-section">
+
+        
+        <script src="https://res.smartwidgets.ru/app.js" defer></script>
+        <div class="sw-app" data-app="a4ec4e70b0218817b7944ce44a644f91"></div>
+
         <div class="contact-container">
             <div class="contact-details">
                 <h1 class="contact-title">КОНТАКТЫ</h1>
@@ -111,9 +164,18 @@
                 </div>
             </div>
             <div class="contact-map">
-                <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/65/novosibirsk/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Новосибирск</a><a href="https://yandex.ru/maps/65/novosibirsk/house/stantsionnaya_ulitsa_30b/bEsYfgRjTEIFQFtvfXxwcHllZg==/?ll=82.833571%2C55.011562&utm_medium=mapframe&utm_source=maps&z=16.59" style="color:#eee;font-size:12px;position:absolute;top:14px;">Станционная улица, 30Б — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=82.833571%2C55.011562&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNjIzMTI2NjI5Ek3QoNC-0YHRgdC40Y8sINCd0L7QstC-0YHQuNCx0LjRgNGB0LosINCh0YLQsNC90YbQuNC-0L3QvdCw0Y8g0YPQu9C40YbQsCwgMzDQkSIKDcqqpUIV1gtcQg%2C%2C&z=16.59" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                <div style="position:relative;overflow:hidden;"><a
+                        href="https://yandex.ru/maps/65/novosibirsk/?utm_medium=mapframe&utm_source=maps"
+                        style="color:#eee;font-size:12px;position:absolute;top:0px;">Новосибирск</a><a
+                        href="https://yandex.ru/maps/65/novosibirsk/house/stantsionnaya_ulitsa_30b/bEsYfgRjTEIFQFtvfXxwcHllZg==/?ll=82.833571%2C55.011562&utm_medium=mapframe&utm_source=maps&z=16.59"
+                        style="color:#eee;font-size:12px;position:absolute;top:14px;">Станционная улица, 30Б —
+                        Яндекс Карты</a><iframe
+                        src="https://yandex.ru/map-widget/v1/?ll=82.833571%2C55.011562&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNjIzMTI2NjI5Ek3QoNC-0YHRgdC40Y8sINCd0L7QstC-0YHQuNCx0LjRgNGB0LosINCh0YLQsNC90YbQuNC-0L3QvdCw0Y8g0YPQu9C40YbQsCwgMzDQkSIKDcqqpUIV1gtcQg%2C%2C&z=16.59"
+                        width="800" height="450" frameborder="1" allowfullscreen="true"
+                        style="position:relative;"></iframe></div>
             </div>
         </div>
     </section>
 </body>
+
 </html>
