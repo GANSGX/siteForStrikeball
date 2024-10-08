@@ -10,10 +10,7 @@ function openModal(imageElement) {
     modalImage.src = imageElement.src;
 
     // Сохраняем индекс текущего изображения
-    currentImageIndex = Array.from(imageElement.parentNode.parentNode.children).indexOf(imageElement.parentNode);
-    // Сохраняем все изображения в массив
-    images.length = 0; // Очистка массива
-    document.querySelectorAll('.gallery-item img').forEach(img => images.push(img.src));
+    currentImageIndex = images.indexOf(imageElement.src);
 }
 
 // Функция для закрытия модального окна
@@ -35,6 +32,11 @@ function changeImage(direction) {
 
     document.getElementById("modalImage").src = images[currentImageIndex];
 }
+
+// Инициализация массива изображений
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.gallery-item img').forEach(img => images.push(img.src));
+});
 
 // Обработчик нажатия на клавишу 'Esc' для закрытия модального окна
 document.addEventListener('keydown', function(event) {

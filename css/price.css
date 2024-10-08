@@ -232,6 +232,9 @@ body {
 .service-container:hover {
     transform: scale(1.05); /* Увеличение при наведении */
 }
+.service-container1:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
 
 .service-image {
     width: 100%;
