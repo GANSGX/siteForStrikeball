@@ -565,3 +565,93 @@ body {
     text-decoration: underline;
     /* Подчеркивание при наведении */
 }
+
+
+
+.unique-order-section {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+
+.unique-order-button {
+    margin-top: calc(var(--index) * 2);
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #2f2f2f; /* Темно-серый фон */
+    color: #f5f5f5; /* Белый цвет текста */
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Poiret One', sans-serif;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Плавный переход */
+}
+
+.unique-order-button:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+    background-color: #4d4d4d; /* Более светлый оттенок серого при наведении */
+}
+
+
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+}
+
+.modal-content {
+    position: absolute; /* Изменено с relative на absolute */
+    top: 40%; /* Позиционируем на 50% от верха */
+    left: 50%; /* Позиционируем на 50% от левого края */
+    transform: translate(-50%, -50%); /* Сдвигаем обратно на 50% от ширины и высоты */
+    padding: 20px;
+    background-color: #2f2f2f; /* Темно-серый фон */
+    color: #f5f5f5; /* Белый цвет текста */
+    max-width: 80%; /* Максимальная ширина модального окна */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    font-family: 'Exotic Stencil Army', sans-serif
+}
+
+
+.modal-header {
+    font-weight: bold; /* Жирный текст */
+    font-size: 24px; /* Размер заголовка */
+}
+
+.modal-contacts {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.modal-link {
+    color: #ffffff; /* Ссылки серого цвета */
+    text-shadow:
+        1px 1px 2px rgba(255, 255, 255, 0.452),
+        
+        0 0 5px rgba(224, 104, 104, 0.846);
+    text-decoration: none;
+    font-family: 'Exotic Stencil Army', sans-serif
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #f5f5f5;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+    transform: scale(1.1); /* Небольшое увеличение при наведении */
+}
